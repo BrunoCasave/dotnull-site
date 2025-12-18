@@ -90,8 +90,8 @@ a {
 }
 
 .brand-logo {
-  width: 120px;
   height: 28px;
+  width: auto;
 }
 
 .nav {
@@ -399,7 +399,7 @@ a {
   }
 
   .brand-logo {
-    width: 106px;
+    height: 26px;
   }
 
   .section {

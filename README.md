@@ -18,6 +18,20 @@ GitHub Pages で公開するための、シンプルな静的コーポレート�
 
 数十秒〜数分で `https://<GitHubユーザー名>.github.io/<リポジトリ名>/` で表示されます。
 
+## 先にプレビューしたい（独自ドメイン設定前）
+
+このリポジトリには独自ドメイン用の `CNAME` を同梱しています。独自ドメイン設定前に `github.io` 側のURLで確認したい場合は、一時的に `CNAME` を外して push してください。
+
+例:
+
+```bash
+git rm CNAME
+git commit -m "Temporarily remove CNAME for preview"
+git push
+```
+
+確認できたら `CNAME` を戻して push し、GitHub の `Settings` → `Pages` で `Custom domain` を設定します。
+
 ## 独自ドメイン（dotnull.co.jp）
 
 ### 1) GitHub 側
