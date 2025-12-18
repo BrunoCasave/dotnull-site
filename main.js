@@ -1,55 +1,39 @@
-const form = document.getElementById("contact-form");
 const note = document.getElementById("form-note");
+const mailtoLink = document.getElementById("contact-mailto");
+const emailText = document.getElementById("contact-email");
+const copyButton = document.getElementById("copy-email");
 
 function setNote(message) {
   if (!note) return;
   note.textContent = message;
 }
 
-if (form) {
-  form.addEventListener("submit", async (event) => {
-    const action = form.getAttribute("action") || "";
+// TODO: 実際の宛先に合わせて変更してください
+const CONTACT_EMAIL_USER = "info";
+const CONTACT_EMAIL_DOMAIN = "dotnull.co.jp";
+const CONTACT_EMAIL = `${CONTACT_EMAIL_USER}@${CONTACT_EMAIL_DOMAIN}`;
 
-    if (!action || action === "#") {
-      event.preventDefault();
-      setNote(
-        "このサイトはGitHub Pages用の静的サイトです。フォーム送信先（action）を設定してください。"
-      );
-      return;
-    }
+const SUBJECT = "お問い合わせ（株式会社どっとぬる）";
+const BODY = ["お名前：", "ご連絡先メール：", "お問い合わせ内容：", "", "—", ""].join("\n");
 
-    const isSameOrigin = (() => {
-      try {
-        const target = new URL(action, window.location.href);
-        return target.origin === window.location.origin;
-      } catch {
-        return false;
-      }
-    })();
+if (mailtoLink) {
+  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    SUBJECT
+  )}&body=${encodeURIComponent(BODY)}`;
+  mailtoLink.setAttribute("href", href);
+}
 
-    if (!isSameOrigin) {
-      return;
-    }
+if (emailText) {
+  emailText.textContent = CONTACT_EMAIL;
+}
 
-    event.preventDefault();
-
+if (copyButton) {
+  copyButton.addEventListener("click", async () => {
     try {
-      const response = await fetch(action, {
-        method: form.method || "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-
-      if (!response.ok) {
-        setNote("送信に失敗しました。時間をおいて再度お試しください。");
-        return;
-      }
-
-      form.reset();
-      setNote("送信しました。ありがとうございました。");
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setNote("メールアドレスをコピーしました。");
     } catch {
-      setNote("送信に失敗しました。時間をおいて再度お試しください。");
+      setNote("コピーに失敗しました。手動で選択してコピーしてください。");
     }
   });
 }
-

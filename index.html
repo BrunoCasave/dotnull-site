@@ -119,45 +119,25 @@
         <div class="container contact-inner">
           <h2 class="contact-title">お問合せ</h2>
 
-          <form class="contact-form" id="contact-form" method="post" action="#">
-            <label class="field">
-              <span class="field-label">お名前</span>
-              <input
-                class="field-input"
-                name="name"
-                autocomplete="name"
-                type="text"
-                placeholder="お名前を入力してください"
-                required
-              />
-            </label>
+          <div class="contact-form" role="region" aria-label="お問い合わせ方法">
+            <p class="contact-lead">
+              送信フォームの代わりに、メールアプリを開いてお問い合わせいただけます（無料）。
+            </p>
 
-            <label class="field">
-              <span class="field-label">メールアドレス</span>
-              <input
-                class="field-input"
-                name="email"
-                autocomplete="email"
-                type="email"
-                placeholder="メールアドレスを入力してください"
-                required
-              />
-            </label>
+            <div class="contact-actions">
+              <a class="button button--primary" id="contact-mailto" href="#"
+                >メールで問い合わせる</a
+              >
+              <button class="button button--secondary" id="copy-email" type="button">
+                メールアドレスをコピー
+              </button>
+            </div>
 
-            <label class="field">
-              <span class="field-label">お問い合わせ内容</span>
-              <textarea
-                class="field-textarea"
-                name="message"
-                placeholder="お問い合わせ内容を入力してください"
-                rows="6"
-                required
-              ></textarea>
-            </label>
-
-            <button class="button button--primary" type="submit">送信</button>
+            <p class="contact-email">
+              宛先: <span id="contact-email" class="contact-email-value"></span>
+            </p>
             <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
-          </form>
+          </div>
         </div>
       </section>
     </main>

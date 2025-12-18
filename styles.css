@@ -307,6 +307,41 @@ a {
   backdrop-filter: blur(8px);
 }
 
+.contact-lead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.button--secondary {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.button--secondary:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.contact-email {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+}
+
+.contact-email-value {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .field {
   display: grid;
   gap: 10px;
