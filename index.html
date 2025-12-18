@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>株式会社どっとぬる | .null</title>
+    <meta
+      name="description"
+      content="色も、機能も、体験も。nullから構築する。株式会社どっとぬるのコーポレートサイト。"
+    />
+
+    <meta property="og:title" content="株式会社どっとぬる | .null" />
+    <meta
+      property="og:description"
+      content="色も、機能も、体験も。nullから構築する。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dotnull.co.jp/" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="トップへ">
+          <img class="brand-logo" src="assets/logo.svg" alt=".null" />
+        </a>
+        <nav class="nav" aria-label="サイト内ナビゲーション">
+          <a class="nav-link" href="#service">事業内容</a>
+          <a class="nav-link" href="#company">会社概要</a>
+          <a class="nav-link" href="#contact">お問合せ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="site-main" role="main">
+      <section id="top" class="hero" aria-label="ヒーロー">
+        <div class="container hero-inner">
+          <h1 class="hero-title">
+            色も、機能も、体験も。<br />
+            nullから構築する。
+          </h1>
+        </div>
+      </section>
+
+      <section id="service" class="section section--service">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">
+              <span class="section-title-en">Service</span>
+              <span class="section-title-ja">事業内容</span>
+            </h2>
+            <div class="section-rule" aria-hidden="true"></div>
+          </div>
+          <ul class="service-list">
+            <li>自動車部品の塗装及び加工</li>
+            <li>自動車部品及び用品の企画、開発、研究、製造、販売</li>
+            <li>アプリケーションソフトウェアの企画、制作、販売及び運営</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="company" class="section section--company">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">
+              <span class="section-title-en">Company</span>
+              <span class="section-title-ja">会社概要</span>
+            </h2>
+            <div class="section-rule" aria-hidden="true"></div>
+          </div>
+
+          <div class="company-card" role="region" aria-label="会社概要">
+            <dl class="company-table">
+              <div class="company-row">
+                <dt>会社名</dt>
+                <dd>株式会社どっとぬる</dd>
+              </div>
+              <div class="company-row">
+                <dt>設立日</dt>
+                <dd>2025年 8月 1日</dd>
+              </div>
+              <div class="company-row">
+                <dt>資本金</dt>
+                <dd>¥ 5,000,000</dd>
+              </div>
+              <div class="company-row">
+                <dt>代表者</dt>
+                <dd>Bruno Tetsuo Casavechia</dd>
+              </div>
+              <div class="company-row">
+                <dt>所在地</dt>
+                <dd>
+                  〒514-2203<br />
+                  三重県津市芸濃町中縄437-1
+                </dd>
+              </div>
+              <div class="company-row">
+                <dt>事業内容</dt>
+                <dd>
+                  <ul class="company-inline-list">
+                    <li>自動車部品の塗装及び加工業務</li>
+                    <li>自動車部品及び用品の企画、開発、研究、製造、販売</li>
+                    <li>アプリケーションソフトウェアの企画、制作、販売及び運営</li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section--contact">
+        <div class="contact-bg" aria-hidden="true"></div>
+        <div class="container contact-inner">
+          <h2 class="contact-title">お問合せ</h2>
+
+          <form class="contact-form" id="contact-form" method="post" action="#">
+            <label class="field">
+              <span class="field-label">お名前</span>
+              <input
+                class="field-input"
+                name="name"
+                autocomplete="name"
+                type="text"
+                placeholder="お名前を入力してください"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span class="field-label">メールアドレス</span>
+              <input
+                class="field-input"
+                name="email"
+                autocomplete="email"
+                type="email"
+                placeholder="メールアドレスを入力してください"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span class="field-label">お問い合わせ内容</span>
+              <textarea
+                class="field-textarea"
+                name="message"
+                placeholder="お問い合わせ内容を入力してください"
+                rows="6"
+                required
+              ></textarea>
+            </label>
+
+            <button class="button button--primary" type="submit">送信</button>
+            <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <small>©2025 株式会社どっとぬる All Rights Reserved.</small>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
+
