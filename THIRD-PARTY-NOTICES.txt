@@ -44,3 +44,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+---
+
+Inter Tight (assets/fonts/inter-tight-latin-*.woff2)
+Copyright 2022 The Inter Project Authors (https://github.com/rsms/inter-tight)
+Licensed under the SIL Open Font License, Version 1.1. Full text: assets/fonts/OFL-InterTight.txt

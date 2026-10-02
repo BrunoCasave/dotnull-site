@@ -1,5 +1,26 @@
 /* Progressive enhancement only. Content, download links and legal pages remain static. */
 (() => {
+  const header = document.querySelector('[data-header]');
+  if (header) {
+    const syncHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+    window.addEventListener('scroll', syncHeader, { passive: true });
+    syncHeader();
+  }
+
+  const revealItems = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealItems.forEach(item => observer.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add('is-in'));
+  }
+
   const company = document.getElementById('company-details');
   const companyLinks = [...document.querySelectorAll('[data-company-link]')];
   const openCompany = () => {
