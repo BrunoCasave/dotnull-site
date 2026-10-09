@@ -2,3 +2,4 @@
 .brand{min-width:0}.brand img{flex-shrink:0}.brand span{overflow-wrap:anywhere;line-height:1.4}@media(max-width:760px){.brand{flex:1}}
 
 @media(max-width:760px){.footer-top,.footer-bottom{align-items:flex-start;flex-direction:column;gap:18px}.footer-bottom nav{gap:14px}}
+.hero{grid-template-columns:1.05fr .95fr;gap:40px}.screen-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}.screen-pair .product-shot img{width:100%;max-width:250px}.screen-pair figcaption{line-height:1.5;min-height:40px}@media(max-width:760px){.hero{grid-template-columns:1fr}.screen-pair{max-width:520px;width:100%;margin:auto}}
