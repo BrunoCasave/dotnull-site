@@ -36,7 +36,11 @@ h1 span { color: var(--blue); }
 .lead { font-size: 18px; line-height: 2; color: #505b6a; margin-bottom: 32px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 28px; min-height: 48px; padding: 12px 24px; border-radius: 6px; background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; transition: transform 140ms cubic-bezier(.23,1,.32,1); }
 .button:active { transform: scale(.97); }
-.availability { font-size: 13px; color: #626c7a; margin: 20px 0 0; }
+.availability { font-size: 13px; color: #626c7a; margin: 0 0 12px; }
+.store-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 20px; }
+.store-links a { display: inline-flex; align-items: center; min-height: 60px; max-width: 100%; border-radius: 6px; }
+.store-links img { display: block; width: auto; height: 48px; max-width: 100%; border-radius: 0; }
+.store-links img[src*="google-play-"] { height: 60px; }
 .app-preview { margin: 0; justify-self: center; max-width: 280px; }
 .app-preview > img { border: 1px solid #d9dee6; border-radius: 24px; background: #fff; box-shadow: 0 14px 40px #233a6612; }
 figcaption { font-size: 12px; line-height: 1.7; color: #626c7a; margin-top: 14px; }
@@ -59,7 +63,10 @@ dd { margin: 0; color: var(--muted); }
 .text-link { color: #245aa4; font-weight: 600; }
 .closing { background: var(--surface); }
 .closing-inner { display: flex; align-items: center; gap: 22px; padding-block: 36px; }
-.closing img { width: 64px; height: 64px; border-radius: 15px; }
+.closing-inner > img { width: 64px; height: 64px; border-radius: 15px; flex-shrink: 0; }
+.closing-copy { flex: 1; min-width: 0; }
+.closing-actions { margin-left: auto; max-width: 100%; }
+.closing .store-links { margin-bottom: 8px; }
 .closing h2 { font-size: 22px; margin: 0; }
 .closing p { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
 .closing .text-link { margin-left: auto; font-size: 14px; }
@@ -109,6 +116,7 @@ a:focus-visible, summary:focus-visible, select:focus-visible { outline: 3px soli
   h2 { font-size: 28px; }
   .features, .privacy-summary { grid-template-columns: 1fr; gap: 14px; }
   .closing-inner { flex-wrap: wrap; gap: 16px; }
+  .closing-actions { flex-basis: 100%; margin-left: 0; }
   .closing .text-link { flex-basis: 100%; margin-left: 0; }
   .footer-top, .footer-bottom { align-items: flex-start; flex-direction: column; gap: 18px; }
   .legal { padding-top: 40px; }
