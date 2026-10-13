@@ -141,14 +141,12 @@ body {
 
 /* ---------- Wordmark ---------- */
 .wordmark {
-  font-family: var(--latin);
-  font-size: 1.9rem;
-  font-weight: 700;
-  letter-spacing: -0.06em;
-  line-height: 1;
+  display: inline-flex;
 }
-.dot {
-  color: var(--accent);
+.wordmark img {
+  display: block;
+  width: auto;
+  height: 28px;
 }
 
 /* ---------- Header ---------- */
@@ -687,15 +685,11 @@ body {
 }
 .company-mark {
   margin-top: 48px;
-  font-family: var(--latin);
-  font-size: clamp(4rem, 11vw, 9rem);
-  font-weight: 700;
-  letter-spacing: -0.07em;
-  line-height: 0.9;
-  color: #0c0d0f14;
 }
-.company-mark .dot {
-  color: #ff5b2e66;
+.company-mark img {
+  display: block;
+  width: auto;
+  height: clamp(56px, 7vw, 100px);
 }
 .company-list div {
   display: grid;
@@ -782,9 +776,8 @@ body {
   gap: 20px 32px;
   padding-block: 36px;
 }
-.site-footer .wordmark {
-  color: var(--white);
-  font-size: 1.5rem;
+.site-footer .wordmark img {
+  height: 24px;
 }
 .footer-nav {
   display: flex;
@@ -1029,8 +1022,8 @@ body.film-open {
   .header-inner {
     height: 64px;
   }
-  .wordmark {
-    font-size: 1.6rem;
+  .wordmark img {
+    height: 24px;
   }
   .hero-inner {
     padding-block: 120px 40px;
