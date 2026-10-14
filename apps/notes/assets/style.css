@@ -3,3 +3,5 @@
 
 @media(max-width:760px){.footer-top,.footer-bottom{align-items:flex-start;flex-direction:column;gap:18px}.footer-bottom nav{gap:14px}}
 .hero{grid-template-columns:1.05fr .95fr;gap:40px}.screen-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}.screen-pair .product-shot img{width:100%;max-width:250px}.screen-pair figcaption{line-height:1.5;min-height:40px}@media(max-width:760px){.hero{grid-template-columns:1fr}.screen-pair{max-width:520px;width:100%;margin:auto}}
+
+.store-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:20px 0 8px}.store-links a{display:inline-flex;align-items:center;min-height:60px;max-width:100%;border-radius:6px}.store-links img{display:block;width:auto;height:48px;max-width:100%;border-radius:0}.store-links img[src*="google-play-"]{height:60px}.closing{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}.closing h2,.closing .store-links{margin:0}
