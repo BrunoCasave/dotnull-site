@@ -546,6 +546,20 @@ body {
   height: auto;
 }
 
+/* Copy Trap: announcement only; keep gameplay details for the approved launch. */
+.feature-copytrap {
+  margin-top: 28px;
+  background: radial-gradient(70% 90% at 100% 0%, #23777855, transparent 75%), #0b1927;
+  color: #fff0ca;
+}
+.feature-copytrap .feature-badge span { background: #83e4dc; color: #0b1927; }
+.feature-copytrap .feature-lead { font-size: 1.125rem; font-weight: 600; color: #e1e9ee; }
+.feature-copytrap .feature-soon { color: #d0dce3; }
+.feature-copytrap .feature-shot,
+.feature-copytrap:hover .feature-shot { transform: none; }
+.btn-copytrap { background: #83e4dc; color: #0b1927; }
+.btn-copytrap:hover { background: #b1f5ed; }
+
 /* ---------- Apps ---------- */
 .apps-head {
   display: flex;
