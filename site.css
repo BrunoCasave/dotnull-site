@@ -560,6 +560,22 @@ body {
 .btn-copytrap { background: #83e4dc; color: #0b1927; }
 .btn-copytrap:hover { background: #b1f5ed; }
 
+/* トジコメ: announcement only, in the game's cork notice-board colors. */
+.feature-tojikome {
+  background: radial-gradient(70% 90% at 100% 0%, #b98a5559, transparent 75%), #2a211b;
+  color: #f7f1e3;
+}
+.feature-tojikome .feature-badge span { background: #f2b705; color: #2b2622; }
+.feature-tojikome .feature-brand img { border-radius: 22%; }
+.feature-tojikome .feature-brand h3 { font-family: inherit; letter-spacing: 0; }
+.feature-tojikome .feature-lead { color: #f7f1e3d9; }
+.feature-tojikome .feature-facts li { border-color: #f7f1e340; color: #f7f1e3cc; }
+.feature-tojikome .feature-soon { color: #f7f1e3a6; }
+.feature-tojikome .feature-shot,
+.feature-tojikome:hover .feature-shot { transform: none; }
+.btn-tojikome { background: #f2b705; color: #2b2622; }
+.btn-tojikome:hover { background: #ffd34d; }
+
 /* ---------- Apps ---------- */
 .apps-head {
   display: flex;
@@ -697,7 +713,7 @@ body {
 }
 .games {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin-top: 24px;
 }
