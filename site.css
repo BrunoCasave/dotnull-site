@@ -691,6 +691,189 @@ body {
   font-weight: 500;
 }
 
+/* ---------- Games (two cards side by side) ---------- */
+.apps-head-first {
+  margin-top: 0;
+}
+.games {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.games .feature {
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 28px;
+  padding: clamp(20px, 2.6vw, 36px);
+}
+.games .feature-shot {
+  order: -1;
+  transform: none;
+}
+.games .feature:hover .feature-shot {
+  transform: none;
+}
+.games .feature-shot img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.games .feature-brand {
+  margin-top: 16px;
+}
+.games .feature-brand img {
+  width: 48px;
+  height: 48px;
+}
+.games .feature-brand h3 {
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+}
+.games .feature-lead,
+.games .feature-copytrap .feature-lead {
+  margin-top: 14px;
+  font-size: 0.9375rem;
+}
+.games .feature-copytrap {
+  margin-top: 0;
+}
+.games .feature {
+  grid-template-rows: auto 1fr;
+}
+.games .feature-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.games .feature-lead,
+.games .feature-copytrap .feature-lead {
+  font-weight: 400;
+}
+.games .feature-actions {
+  margin-top: auto;
+  padding-top: 24px;
+}
+.games .wide-br {
+  display: none;
+}
+
+/* ---------- App list (grouped rows) ---------- */
+.app-groups {
+  display: grid;
+  gap: 8px;
+}
+.app-group {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 24px;
+  padding-block: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.app-group-title {
+  margin: 0;
+  padding-top: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.app-group-title span {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.app-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 24px;
+}
+.app-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.app-row-link {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px;
+  margin-inline: -12px;
+  border-radius: 16px;
+  transition: background-color 0.3s var(--ease);
+}
+.app-row-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px #0000000f,
+    0 6px 14px -8px #0004;
+  transition: transform 0.4s var(--ease);
+}
+.app-row-text {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  line-height: 1.5;
+}
+.app-row-text strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.app-row-text span {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.app-row-link .i {
+  color: var(--muted);
+}
+.app-row .film-trigger {
+  width: 32px;
+  padding: 0;
+  justify-content: center;
+}
+@media (hover: hover) and (pointer: fine) {
+  .app-row-link:hover {
+    background: var(--paper);
+  }
+  .app-row-link:hover .app-row-icon {
+    transform: scale(1.06);
+  }
+  .app-row-link:hover .i {
+    transform: translate(3px, -3px);
+    color: var(--ink);
+  }
+}
+@media (max-width: 960px) {
+  .games {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .app-group-title {
+    padding-top: 0;
+  }
+}
+@media (max-width: 640px) {
+  .app-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-row-text span {
+    white-space: normal;
+  }
+}
+
 /* ---------- Company ---------- */
 .company-layout {
   display: grid;
