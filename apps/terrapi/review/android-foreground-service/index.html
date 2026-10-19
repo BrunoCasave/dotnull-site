@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Terrapi — Android foreground service demonstration</title>
+  <style>
+    :root{color-scheme:light dark;font-family:system-ui,sans-serif;line-height:1.6}
+    body{max-width:760px;margin:32px auto;padding:0 20px}
+    h1{font-size:1.6rem;line-height:1.3}
+    video{display:block;width:100%;max-width:360px;max-height:75vh;margin:24px auto;background:#151515;border-radius:12px}
+    table{border-collapse:collapse;width:100%}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid #8886}
+    a{color:light-dark(#226049,#a4d8bc)}small{display:block;margin-top:24px}
+  </style>
+</head>
+<body>
+  <h1>Terrapi: user-initiated app restrictions</h1>
+  <p>Google Play review demonstration of <code>FOREGROUND_SERVICE_SPECIAL_USE</code>. Recorded on a Pixel 6a with Android 16, Terrapi 1.0.0 (20), on 20 October 2026. No sign-in is needed to watch.</p>
+  <video controls playsinline preload="metadata" aria-label="Terrapi app restriction demonstration on Android">
+    <source src="demo.mp4" type="video/mp4">
+    <p><a href="demo.mp4">Open the MP4 demonstration</a>.</p>
+  </video>
+  <p><a href="demo.mp4">Open or download the original recording (MP4, approximately 53 MB)</a></p>
+  <h2>What the recording demonstrates</h2>
+  <table>
+    <thead><tr><th>Approximate time</th><th>Action and result</th></tr></thead>
+    <tbody>
+      <tr><td>00:10–00:13</td><td>The user selects a 15-minute focus session, enables app restrictions and starts the session.</td></tr>
+      <tr><td>00:15–00:18</td><td>The user opens Calculator, an app they previously selected. Terrapi displays its focus restriction overlay.</td></tr>
+      <tr><td>00:19–00:22</td><td>The user returns to Terrapi and explicitly ends the focus session.</td></tr>
+      <tr><td>00:23–00:29</td><td>The user reopens Calculator without changing the selected-app settings. The restriction overlay is gone.</td></tr>
+    </tbody>
+  </table>
+  <p>The foreground service checks the foreground app during a user-started restriction session and shows an overlay only for selected apps. The recording demonstrates initiation, restriction and release; it does not show the Android notification panel. The recording has no audio.</p>
+  <section lang="ja">
+    <h2>日本語の補足</h2>
+    <p>15分の集中でアプリ制限をオンにし、事前に選択した電卓に制限画面が出る様子と、集中を終了すると選択設定を変えずに制限が解除される様子を記録しています。通知欄はこの動画には映っていません。</p>
+  </section>
+  <small>Terrapi · DOTNULL K.K. · <a href="mailto:terrapi@dotnull.co.jp">terrapi@dotnull.co.jp</a></small>
+</body>
+</html>
