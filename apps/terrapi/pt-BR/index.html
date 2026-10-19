@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt-BR" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Terrapi é um bichinho réptil em pixel art que cresce enquanto você fica longe do celular. 30 espécies reais, como o gecko-leopardo e o jabuti. Ele não morre, não tem anúncios e não chama você de volta com notificações.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://dotnull.co.jp/apps/terrapi/pt-BR/">
+<link rel="alternate" hreflang="ja" href="https://dotnull.co.jp/apps/terrapi/">
+<link rel="alternate" hreflang="en" href="https://dotnull.co.jp/apps/terrapi/en/">
+<link rel="alternate" hreflang="ko" href="https://dotnull.co.jp/apps/terrapi/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://dotnull.co.jp/apps/terrapi/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://dotnull.co.jp/apps/terrapi/zh-Hant/">
+<link rel="alternate" hreflang="es" href="https://dotnull.co.jp/apps/terrapi/es/">
+<link rel="alternate" hreflang="fr" href="https://dotnull.co.jp/apps/terrapi/fr/">
+<link rel="alternate" hreflang="de" href="https://dotnull.co.jp/apps/terrapi/de/">
+<link rel="alternate" hreflang="it" href="https://dotnull.co.jp/apps/terrapi/it/">
+<link rel="alternate" hreflang="pt-BR" href="https://dotnull.co.jp/apps/terrapi/pt-BR/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dotnull.co.jp/apps/terrapi/pt-BR/">
+<meta property="og:title" content="Terrapi - Largue o celular e veja crescer.">
+<meta property="og:description" content="Terrapi é um bichinho réptil em pixel art que cresce enquanto você fica longe do celular. 30 espécies reais, como o gecko-leopardo e o jabuti. Ele não morre, não tem anúncios e não chama você de volta com notificações.">
+<meta property="og:image" content="https://dotnull.co.jp/apps/terrapi/img/pt-BR/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon.png">
+<link rel="apple-touch-icon" href="../img/icon-180.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Terrapi - Largue o celular e veja crescer.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Pixelify+Sans:wght@400;600&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: a warm paper page where the dot-LCD screen is the only "device"; copy sits beside it, sections stack like shelves. */
+:root {
+  --paper: #FFF8EC;      /* app background */
+  --paper-2: #FFF0D6;    /* soft band */
+  --card: #FFFFFF;
+  --ink: #3A2E22;
+  --sub: #7A6A58;
+  --line: #F1E0C0;
+  --ember: #D9682B;      /* app primary */
+  --ember-ink: #FFFFFF;
+  --mint: #E6F7EE;
+  --mint-line: #A4E3C3;
+  --glass: #D3F0E2;      /* mint LCD glass, as on the app icon */
+  --glass-2: #C3E6D4;
+  --dot: #1C3D33;        /* lit dot */
+  --bezel: #287568;      /* logo teal */
+  --shadow: 0 1px 0 rgba(58,46,34,.06), 0 10px 30px -12px rgba(58,46,34,.25);
+  color-scheme: light;
+  --f-dot: "DotGothic16", "Hiragino Maru Gothic ProN", "Yu Gothic", monospace;
+  --f-body: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --dot-weight: 400;
+}
+/* DotGothic16 only covers Japanese and basic Latin: other scripts get a pixel Latin face or the system CJK face. */
+html:is(:lang(en), :lang(es), :lang(fr), :lang(de), :lang(it), :lang(pt)) { --f-dot: "Pixelify Sans", "DotGothic16", monospace; }
+html:lang(ko) { --f-dot: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; --f-body: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; --dot-weight: 800; }
+html:lang(zh-Hans) { --f-dot: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; --f-body: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; --dot-weight: 800; }
+html:lang(zh-Hant) { --f-dot: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif; --f-body: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif; --dot-weight: 800; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { margin: 0; text-wrap: balance; font-weight: 800; letter-spacing: .01em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ember); outline-offset: 3px; border-radius: 6px; }
+.dotface { font-family: var(--f-dot); font-weight: var(--dot-weight); }
+.eyebrow { font-family: var(--f-dot); font-weight: var(--dot-weight); color: var(--ember); font-size: .95rem; letter-spacing: .08em; }
+
+/* ---------- top bar ---------- */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand img { display: block; height: 44px; width: auto; margin-block: -4px; }
+.brand small { color: var(--sub); font-size: .8rem; letter-spacing: .08em; }
+.bar nav { display: flex; gap: 18px; align-items: center; font-size: .9rem; }
+.bar nav a.l { text-decoration: none; color: var(--sub); }
+.bar nav a.l:hover { color: var(--ink); }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lang select { font-family: var(--f-body); font-size: .85rem; font-weight: 700; color: var(--ink); background: var(--card); border: 1.5px solid var(--line); border-radius: 99px; padding: 6px 10px; min-height: 40px; cursor: pointer; max-width: 9.5em; }
+@media (max-width: 720px) { .bar nav a.l { display: none; } }
+@media (max-width: 440px) { .brand small { display: none; } .bar nav { gap: 8px; } }
+
+/* ---------- buttons ---------- */
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 8px 20px; border-radius: 16px; text-decoration: none; font-weight: 700; border: 0; cursor: pointer; font-family: var(--f-body); font-size: 1rem; line-height: 1.25; }
+.btn.primary { background: var(--ember); color: var(--ember-ink); box-shadow: 0 4px 0 color-mix(in srgb, var(--ember) 60%, #000); }
+.btn.primary:active { transform: translateY(2px); box-shadow: 0 2px 0 color-mix(in srgb, var(--ember) 60%, #000); }
+.btn.small { min-height: 40px; padding: 6px 14px; font-size: .9rem; border-radius: 12px; box-shadow: none; }
+.store { background: var(--ink); color: var(--paper); text-align: left; }
+.store svg { width: 24px; height: 24px; flex: none; fill: currentColor; }
+.store span { display: flex; flex-direction: column; }
+.store small { font-size: .7rem; font-weight: 500; opacity: .8; }
+.store[aria-disabled="true"] { cursor: default; }
+.stores { display: flex; flex-wrap: wrap; gap: 10px; }
+.soon { font-size: .82rem; color: var(--sub); }
+
+/* ---------- the LCD device ---------- */
+.device { background: var(--bezel); border-radius: 28px; padding: 16px; box-shadow: var(--shadow); position: relative; }
+.device .screen { background: linear-gradient(var(--glass), var(--glass-2)); border-radius: 14px; padding: 10px; box-shadow: inset 0 2px 6px rgba(0,0,0,.25); }
+.device canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; cursor: pointer; touch-action: manipulation; }
+.device .readout { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; color: #F2FBF6; font-family: var(--f-dot); font-size: .95rem; padding: 10px 4px 0; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+.device .readout .stage { color: #FFD9A8; }
+.stagebar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
+.stagebar i { height: 6px; border-radius: 3px; background: rgba(255,255,255,.14); }
+.stagebar i.on { background: #FFD9A8; }
+
+/* ---------- hero ---------- */
+.hero { padding-block: 48px 64px; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+.hero h1 { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.2; margin-top: 14px; }
+.hero h1 em { font-style: normal; color: var(--ember); }
+.hero .lead { margin-top: 20px; font-size: 1.08rem; color: var(--sub); max-width: 34em; }
+.hero .stores { margin-top: 28px; }
+.hero .soon { margin-top: 10px; }
+.trybox { display: grid; gap: 12px; min-width: 0; }
+.trybox .hint { font-size: .85rem; color: var(--sub); text-align: center; }
+.trybox .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+@media (max-width: 860px) {
+  .hero { padding-block: 28px 40px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ---------- sections ---------- */
+section { padding-block: 72px; }
+section.band { background: var(--paper-2); }
+.head { max-width: 40em; display: grid; gap: 12px; margin-bottom: 36px; }
+.head h2 { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: clamp(1.8rem, 4.6vw, 2.6rem); line-height: 1.3; }
+.head p { color: var(--sub); }
+@media (max-width: 600px) { section { padding-block: 52px; } }
+
+/* how it grows */
+.ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.way { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 22px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.way canvas { width: 72px; height: 48px; image-rendering: pixelated; }
+.way h3 { font-size: 1.15rem; }
+.way p { color: var(--sub); font-size: .95rem; }
+.way .tag { justify-self: start; font-size: .75rem; font-weight: 700; padding: 2px 10px; border-radius: 99px; background: var(--mint); border: 1px solid var(--mint-line); }
+@media (max-width: 860px) { .ways { grid-template-columns: 1fr; } }
+.fair { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .9rem; color: var(--sub); }
+.fair b { color: var(--ink); font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+
+/* collection */
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.tab { font-family: var(--f-body); font-weight: 700; font-size: .95rem; padding: 8px 16px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.agebtn { margin-left: auto; }
+.grid6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.sp { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px; display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; min-width: 0; }
+.sp .mini { background: linear-gradient(var(--glass), var(--glass-2)); border-radius: 10px; padding: 6px; }
+.sp canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.sp h3 { font-size: 1rem; line-height: 1.4; }
+.sp p { font-size: .82rem; color: var(--sub); line-height: 1.6; margin-top: 4px; }
+.sp.secret h3 { font-family: var(--f-dot); font-weight: var(--dot-weight); letter-spacing: .1em; }
+.sp.secret .mini { opacity: .75; }
+@media (max-width: 900px) { .grid6 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid6 { grid-template-columns: 1fr; } }
+.colnote { margin-top: 18px; font-size: .9rem; color: var(--sub); }
+
+/* promises */
+.promises { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.promise { padding: 22px 18px 6px 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.promise .big { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: 1.6rem; line-height: 1.3; }
+.promise p { color: var(--sub); font-size: .92rem; }
+@media (max-width: 860px) { .promises { grid-template-columns: 1fr 1fr; gap: 0 18px; } }
+@media (max-width: 480px) { .promises { grid-template-columns: 1fr; } }
+
+/* widget */
+.wid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.phone { justify-self: center; width: min(300px, 100%); aspect-ratio: 9 / 16; border-radius: 36px; background: linear-gradient(160deg, #F5BD9E, #F0C48C 45%, #A4E3C3); padding: 22px 18px; display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: min-content; gap: 14px; border: 8px solid var(--bezel); box-shadow: var(--shadow); }
+.phone .clock { grid-column: 1 / -1; text-align: center; font-weight: 800; font-size: 3rem; color: #fff; line-height: 1.1; text-shadow: 0 2px 10px rgba(0,0,0,.15); font-variant-numeric: tabular-nums; }
+.phone .clock small { display: block; font-size: .8rem; font-weight: 700; }
+.wcard { grid-column: 1 / -1; background: rgba(255,255,255,.75); border-radius: 22px; padding: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: center; color: #3A2E22; }
+.wcard .mini { background: linear-gradient(#D3F0E2, #C3E6D4); border-radius: 12px; padding: 6px; }
+.wcard canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.wcard .t { font-family: var(--f-dot); font-size: .95rem; line-height: 1.5; }
+.wcard .h { color: #D9682B; letter-spacing: 2px; }
+.app { aspect-ratio: 1; border-radius: 16px; background: rgba(255,255,255,.45); }
+.wid ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.wid li { padding-left: 22px; position: relative; color: var(--sub); }
+.wid li::before { content: ""; position: absolute; left: 4px; top: .75em; width: 8px; height: 8px; background: var(--ember); }
+@media (max-width: 860px) { .wid { grid-template-columns: 1fr; } }
+
+/* screenshots */
+.shots { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 240px); gap: 16px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+.shots img { width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); scroll-snap-align: start; background: var(--card); }
+
+/* pricing */
+.free { background: var(--mint); border: 1px solid var(--mint-line); border-radius: 22px; padding: 22px; display: grid; gap: 6px; margin-bottom: 18px; }
+.free h3 { font-size: 1.1rem; }
+.free p { color: var(--sub); font-size: .95rem; }
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.plan { background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px; display: grid; gap: 6px; align-content: start; position: relative; }
+.plan.pick { border-color: var(--ember); }
+.plan .badge { position: absolute; top: -12px; left: 20px; background: var(--ember); color: var(--ember-ink); font-size: .75rem; font-weight: 800; padding: 2px 10px; border-radius: 99px; }
+.plan .name { font-weight: 700; color: var(--sub); }
+.plan .price { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: 2.2rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.plan .price small { font-size: 1rem; color: var(--sub); }
+.plan p { font-size: .88rem; color: var(--sub); }
+@media (max-width: 760px) { .plans { grid-template-columns: 1fr; } }
+.member { margin-top: 18px; font-size: .9rem; color: var(--sub); }
+
+/* faq */
+.faq { display: grid; gap: 10px; max-width: 760px; }
+.faq details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 4px 18px; }
+.faq summary { cursor: pointer; font-weight: 700; padding: 12px 0; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--f-dot); color: var(--ember); font-size: 1.3rem; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { color: var(--sub); padding-bottom: 14px; font-size: .95rem; }
+
+/* final */
+.final { text-align: center; }
+.final .wrap { display: grid; justify-items: center; gap: 18px; }
+.final .device { width: min(360px, 100%); }
+.final .logo { width: min(320px, 80%); height: auto; }
+.final h2 { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.3; }
+.final .stores { justify-content: center; }
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; font-size: .85rem; color: var(--sub); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; }
+footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
+.mail { user-select: all; }
+</style>
+
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" data-i18n-attr="aria-label:brand.aria" aria-label="Início do Terrapi">
+      <img src="../img/logo.svg" width="88" height="44" alt="Terrapi">
+      <small data-i18n="brand.sub">Terrapi</small>
+    </a>
+    <nav>
+      <a class="l" href="#how" data-i18n="nav.how">Como cresce</a>
+      <a class="l" href="#zukan" data-i18n="nav.zukan">Coleção</a>
+      <a class="l" href="#price" data-i18n="nav.price">Preços</a>
+      <a class="l" href="#faq" data-i18n="nav.faq">Perguntas frequentes</a>
+      <label class="lang"><span class="vh" data-i18n="lang.label">Idioma</span><select id="langSel"></select></label>
+      <a class="btn primary small dl" href="#get" data-i18n="nav.download">Baixar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-top:0">
+  <div class="wrap" style="padding-top:48px">
+    <div>
+      <div class="eyebrow" data-i18n="hero.eyebrow">Répteis em pixel art × timer de foco</div>
+      <h1 data-i18n="hero.title">Largue o celular.<br><em>E veja crescer.</em></h1>
+      <p class="lead" data-i18n="hero.lead">Terrapi é um app para criar um pequeno réptil que cresce enquanto você não mexe no celular. Estudo, trabalho, tarefas de casa, leitura. Quanto mais tempo o celular fica de lado, mais ele cresce: o ovo choca e vira um gecko-leopardo ou um jabuti.</p>
+      <div class="stores" data-stores></div>
+      <p class="soon" data-soon></p>
+    </div>
+    <div class="trybox">
+      <div class="device" id="heroDevice">
+        <div class="screen"><canvas id="hero" data-i18n-attr="aria-label:hero.aria" aria-label="Um gecko-leopardo andando numa tela de pixels. Toque para fazer carinho." role="img"></canvas></div>
+        <div class="readout"><span id="heroLine">レオパ・おとな</span><span class="stage" id="heroStage" data-i18n="hero.tap">Toque para fazer carinho</span></div>
+        <div class="stagebar" id="heroBar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="demoBtn" type="button" data-i18n="demo.btn">Experimente largar o celular</button>
+      </div>
+      <p class="hint" id="demoHint" data-i18n="demo.hint">Aperte o botão para ver, em modo acelerado, do ovo até a fase adulta.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="how">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="how.eyebrow">Como cresce</div>
+      <h2 data-i18n="how.title">O tempo longe do celular<br>é a comida dele.</h2>
+      <p data-i18n="how.lead">Não precisa ficar olhando para a tela. É só virar o celular para baixo e cuidar das suas coisas. Enquanto isso, uma vidinha cresce forte e saudável dentro do Terrapi.</p>
+    </div>
+    <div class="ways">
+      <article class="way">
+        <canvas data-icon="phone" width="24" height="16" aria-hidden="true"></canvas>
+        <span class="tag" data-i18n="how.w1.tag">Agora mesmo</span>
+        <h3 data-i18n="how.w1.title">O botão “Largar o celular”</h3>
+        <p data-i18n="how.w1.text">Escolha de 5 a 45 minutos, apague a tela e deixe o celular de lado. Se você costuma abrir as redes sociais sem perceber, dá para bloquear os apps que escolher enquanto foca.</p>
+      </article>
+      <article class="way">
+        <canvas data-icon="plan" width="24" height="16" aria-hidden="true"></canvas>
+        <span class="tag" data-i18n="how.w2.tag">Sem botão</span>
+        <h3 data-i18n="how.w2.title">Horários de foco</h3>
+        <p data-i18n="how.w2.text">Defina até 3 horários por dia, como “Dias úteis, 20h–21h”, e o tempo em que você não mexer no celular nesse horário é contado sozinho. Esqueceu de apertar o botão? Tudo bem.</p>
+      </article>
+      <article class="way">
+        <canvas data-icon="walk" width="24" height="16" aria-hidden="true"></canvas>
+        <span class="tag" data-i18n="how.w3.tag">No bolso</span>
+        <h3 data-i18n="how.w3.title">Passeio</h3>
+        <p data-i18n="how.w3.text">Ande com o celular e o humor dele melhora. Você pode até achar ovos novos. Algumas espécies só aparecem se você andar bastante na fase bebê.</p>
+      </article>
+    </div>
+    <div class="fair">
+      <span data-i18n="how.f1">O ovo choca em <b>15 min</b></span>
+      <span data-i18n="how.f2">Jovem em <b>150 min + 3 dias</b></span>
+      <span data-i18n="how.f3">Adulto em <b>600 min + 10 dias</b></span>
+      <span data-i18n="how.f4">Conta até <b>120 min</b> por dia</span>
+      <span data-i18n="how.f5">O tempo de sono não conta</span>
+    </div>
+  </div>
+</section>
+
+<section id="zukan">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="zukan.eyebrow">Coleção</div>
+      <h2 data-i18n="zukan.title">Geckos-leopardo, jabutis:<br>30 espécies reais.</h2>
+      <p data-i18n="zukan.lead">Cinco famílias (lagartixas, tartarugas, cobras, lagartos e jacarés), com 6 espécies cada. A espécie que ele vai virar depende de como você cuida dele na fase bebê. Aqui mostramos só uma espécie de cada família. As outras, você descobre criando.</p>
+    </div>
+    <div class="tabs" role="tablist" data-i18n-attr="aria-label:zukan.tabs" aria-label="Famílias">
+      <button class="tab" role="tab" type="button" data-fam="gecko" aria-selected="true" data-i18n="fam.gecko">Lagartixa</button>
+      <button class="tab" role="tab" type="button" data-fam="turtle" aria-selected="false" data-i18n="fam.turtle">Tartaruga</button>
+      <button class="tab" role="tab" type="button" data-fam="snake" aria-selected="false" data-i18n="fam.snake">Cobra</button>
+      <button class="tab" role="tab" type="button" data-fam="lizard" aria-selected="false" data-i18n="fam.lizard">Lagarto</button>
+      <button class="tab" role="tab" type="button" data-fam="croc" aria-selected="false" data-i18n="fam.croc">Jacaré</button>
+      <button class="tab agebtn" type="button" id="ageBtn" aria-pressed="false" data-i18n="zukan.showChild">Ver na fase jovem</button>
+    </div>
+    <div class="grid6" id="zgrid" role="tabpanel"></div>
+    <p class="colnote" data-i18n="zukan.note">5 ovos, 5 bebês, 30 jovens e 30 adultos. São 70 formas no total.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="promise.eyebrow">Nossa promessa</div>
+      <h2 data-i18n="promise.title">Um jogo de bichinho gentil<br>para quem quer usar menos o celular.</h2>
+    </div>
+    <div class="promises">
+      <div class="promise"><div class="big" data-i18n="promise.p1.big">Ele não morre.</div><p data-i18n="promise.p1.text">Mesmo se você esquecer de cuidar, seu bichinho nunca vai embora. Se ficar doente, o remédio deixa ele bem de novo.</p></div>
+      <div class="promise"><div class="big" data-i18n="promise.p2.big">Sem cobranças.</div><p data-i18n="promise.p2.text">Nada de notificações de “estou com fome” para fazer você abrir o celular. Dar uma olhadinha de manhã e à noite já basta.</p></div>
+      <div class="promise"><div class="big" data-i18n="promise.p3.big">Sem anúncios,<br>sem gacha.</div><p data-i18n="promise.p3.text">Nenhum anúncio na tela. E nada de pagar para ficar mais forte.</p></div>
+      <div class="promise"><div class="big" data-i18n="promise.p4.big">Seus dados ficam<br>no seu celular.</div><p data-i18n="promise.p4.text">Seu registro de foco e seus passos não saem do seu aparelho. Nem precisa criar conta.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap wid">
+    <div class="phone" aria-hidden="true">
+      <div class="clock"><span id="wclock">8:30</span><small data-i18n="widget.home">Tela de início</small></div>
+      <div class="wcard">
+        <div class="mini"><canvas id="widget"></canvas></div>
+        <div class="t"><span data-i18n="widget.pet">Paçoca</span><br><span class="h">♥♥♥♡</span><br><span data-i18n="widget.state">De boa</span></div>
+      </div>
+      <div class="app"></div><div class="app"></div>
+    </div>
+    <div>
+      <div class="eyebrow" data-i18n="widget.eyebrow">Widgets</div>
+      <div class="head" style="margin-bottom:0">
+        <h2 data-i18n="widget.title">Veja como ele está<br>sem abrir o app.</h2>
+        <p data-i18n="widget.lead">Com widgets para a tela de início e a tela bloqueada (iPhone), você vê o humor e a barriga dele em pixel art. Só vá visitar quando precisar.</p>
+      </div>
+      <ul>
+        <li data-i18n="widget.li1">O nome e o humor em corações</li>
+        <li data-i18n="widget.li2">Na hora de dormir, aparece dormindo</li>
+        <li data-i18n="widget.li3">Escolha entre 8 cores de tela (assinatura)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="shots.eyebrow">Telas</div>
+      <h2 data-i18n="shots.title">Veja como é por dentro.</h2>
+    </div>
+    <div class="shots" tabindex="0" data-i18n-attr="aria-label:shots.aria" aria-label="Telas do app">
+      <img src="../img/pt-BR/01-home.webp" data-shot width="540" height="1173" loading="lazy" data-i18n-attr="alt:shots.alt1" alt="Tela inicial. Um gecko-leopardo numa tela de pixels, com botões como Comida e Brincar.">
+      <img src="../img/pt-BR/02-focus.webp" data-shot width="540" height="1173" loading="lazy" data-i18n-attr="alt:shots.alt2" alt="Tela de foco com o celular de lado. O tempo restante e o bichinho dormindo.">
+      <img src="../img/pt-BR/03-album.webp" data-shot width="540" height="1173" loading="lazy" data-i18n-attr="alt:shots.alt3" alt="Tela da coleção com as espécies que você já conheceu.">
+      <img src="../img/pt-BR/04-walk.webp" data-shot width="540" height="1173" loading="lazy" data-i18n-attr="alt:shots.alt4" alt="Tela de passeio. Os passos de hoje e o cartão de carimbos.">
+      <img src="../img/pt-BR/05-records.webp" data-shot width="540" height="1173" loading="lazy" data-i18n-attr="alt:shots.alt5" alt="Tela de registros. Gráfico do tempo de foco desta semana.">
+      <img src="../img/pt-BR/06-friends.webp" data-shot width="540" height="1173" loading="lazy" data-i18n-attr="alt:shots.alt6" alt="Tela de amigos. Lista dos bichinhos que você já criou.">
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-i18n="price.eyebrow">Preços</div>
+      <h2 data-i18n="price.title">Comece com 7 dias grátis.</h2>
+      <p data-i18n="price.lead">Chocar o ovo e criar até a fase jovem é grátis. Para ele virar adulto, é só fazer a assinatura.</p>
+    </div>
+    <div class="free">
+      <h3 data-i18n="price.freeTitle">O que é grátis</h3>
+      <p data-i18n="price.freeText">Chocar ovos, cuidar de bebês e jovens, timer de foco, horários de foco, passeio, coleção, registros e widgets.</p>
+    </div>
+    <div class="plans">
+      <div class="plan pick"><span class="badge" data-i18n="price.badge">Melhor preço</span><div class="name" data-i18n="price.yearly">Plano anual</div><div class="price" data-i18n="price.yearlyAmount">Por ano</div><p data-i18n="price.yearlyNote">Inclui 7 dias de teste grátis. É o que mais compensa.</p></div>
+      <div class="plan"><div class="name" data-i18n="price.monthly">Plano mensal</div><div class="price" data-i18n="price.monthlyAmount">Por mês</div><p data-i18n="price.monthlyNote">Inclui 7 dias de teste grátis. Cancele quando quiser.</p></div>
+      <div class="plan"><div class="name" data-i18n="price.lifetime">Compra única</div><div class="price" data-i18n="price.lifetimeAmount">Uma vez só</div><p data-i18n="price.lifetimeNote">Pague uma vez e use para sempre.</p></div>
+    </div>
+    <p class="member" data-i18n="price.member">Com a assinatura: seu bichinho cresce de jovem até adulto, você pode receber novos amigos e criá-los juntos, e trocar a cor da tela. Se cancelar, os bichinhos que você criou não somem. Os adultos ficam hibernando e você ainda pode fazer carinho neles. O timer de foco continua funcionando normalmente. Os preços na sua moeda aparecem na App Store e no Google Play.</p>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow" data-i18n="faq.eyebrow">Perguntas frequentes</div><h2 data-i18n="faq.title">Dúvidas comuns</h2></div>
+    <div class="faq">
+      <details><summary data-i18n="faq.q1">Funciona no iPhone e no Android?</summary><p data-i18n="faq.a1">Sim, nos dois. Está disponível em japonês, inglês, coreano, chinês (simplificado e tradicional), espanhol, francês, alemão, italiano e português (Brasil).</p></details>
+      <details><summary data-i18n="faq.q2">Se eu deixar o celular parado enquanto durmo, ele cresce sozinho?</summary><p data-i18n="faq.a2">Não. O tempo de sono não conta, e o foco conta só até 120 minutos por dia. Ele só cresce nos dias em que você larga o celular e aproveita bem o tempo acordado.</p></details>
+      <details><summary data-i18n="faq.q3">Como o app sabe que larguei o celular?</summary><p data-i18n="faq.a3">Com o botão “Largar o celular”, ele verifica se você saiu do app. Nos horários de foco, se você permitir o Tempo de Uso no iPhone ou o acesso ao uso no Android, ele confere se o celular foi usado nesse horário. Seus registros nunca saem do aparelho.</p></details>
+      <details><summary data-i18n="faq.q4">O que acontece se eu não cuidar dele?</summary><p data-i18n="faq.a4">Ele fica com fome ou emburrado. Se continuar assim, conta como um “descuido”, e na fase bebê isso pode mudar a espécie que ele vai virar. Mas ele nunca vai embora.</p></details>
+      <details><summary data-i18n="faq.q5">Quantas vezes por dia preciso abrir?</summary><p data-i18n="faq.a5">Uma olhadinha de manhã e à noite para dar comida e limpar já basta. No resto do tempo, deixe o celular de lado.</p></details>
+      <details><summary data-i18n="faq.q6">Se eu cancelar a assinatura, meus bichinhos somem?</summary><p data-i18n="faq.a6">Não. Os adultos ficam hibernando, e você pode visitar e fazer carinho neles. Os jovens continuam vivendo normalmente, mas não viram adultos. Se assinar de novo, continua de onde parou.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="get">
+  <div class="wrap">
+    <div class="device"><div class="screen"><canvas id="finalLcd" data-i18n-attr="aria-label:final.aria" aria-label="Um ovo balançando devagar" role="img"></canvas></div></div>
+    <img class="logo" src="../img/logo.svg" width="320" height="160" alt="Terrapi">
+    <h2 data-i18n="final.title">Um ovo.<br>Agora é só largar o celular.</h2>
+    <div class="stores" data-stores></div>
+    <p class="soon" data-soon></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="https://dotnull.co.jp/" data-i18n="footer.company">DOTNULL Co.,Ltd</a></span>
+    <span class="links" id="legal"></span>
+    <span><span data-i18n="footer.contact">Contato: </span><span class="mail">terrapi@dotnull.co.jp</span></span>
+  </div>
+</footer>
+
+<script src="../sprites.js"></script>
+<script src="../i18n.js"></script>
+<script>
+// ストアのURLが決まったらここに入れてください。空のあいだは「近日公開」と表示します。
+const LINKS = {
+  appStore: '',
+  googlePlay: '',
+  privacy: 'https://dotnull.co.jp/apps/terrapi/privacy/ja/',
+  terms: 'https://dotnull.co.jp/apps/terrapi/terms/ja/',
+  support: 'https://dotnull.co.jp/apps/terrapi/support/{lang}/',
+};
+
+(() => {
+  const SP = window.TERRAPI_SPRITES || {};
+  const ROSTER = window.TERRAPI_ROSTER || [];
+  const I18N = window.TERRAPI_I18N || { strings: {}, species: {} };
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- language ----------
+  // Built pages carry data-lang (and data-root, the way back to the Japanese page);
+  // the preview has neither and switches in place.
+  const LANGS = [['ja', '日本語'], ['en', 'English'], ['ko', '한국어'], ['zh-Hans', '简体中文'], ['zh-Hant', '繁體中文'],
+    ['es', 'Español'], ['fr', 'Français'], ['de', 'Deutsch'], ['it', 'Italiano'], ['pt-BR', 'Português (Brasil)']];
+  const root = document.documentElement;
+  let lang = root.dataset.lang || 'ja';
+  const t = (key, vars = {}) => {
+    const s = (I18N.strings[lang] || {})[key] ?? (I18N.strings.ja || {})[key] ?? key;
+    return s.replace(/\{(\w+)\}/g, (m, n) => (n in vars ? vars[n] : m));
+  };
+  const spName = id => ((I18N.species[lang] || {})[id] || (I18N.species.ja || {})[id] || [id, ''])[0];
+  const spBlurb = id => ((I18N.species[lang] || {})[id] || (I18N.species.ja || {})[id] || ['', ''])[1];
+  const langSel = document.getElementById('langSel');
+  langSel.innerHTML = LANGS.map(([c, n]) => `<option value="${c}">${n}</option>`).join('');
+  langSel.addEventListener('change', () => {
+    const c = langSel.value;
+    if (root.dataset.root !== undefined) { location.href = root.dataset.root + (c === 'ja' ? '' : c + '/'); return; }
+    lang = c;
+    applyLang();
+  });
+
+  // ---------- store buttons ----------
+  const apple = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.2 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-4.2zM14 5.3c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg>';
+  const play = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.4.7-.4 1.3v17.8c0 .6.2 1 .4 1.3l.1.1 10-10v-.2L3.7 1.7l-.1.1zM17 15.6l-3.3-3.3v-.2L17 8.7l.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2-.1.1zM17.1 15.5 13.7 12 3.6 22.1c.4.4 1 .4 1.7.1l11.8-6.7M17.1 8.5 5.3 1.8c-.7-.4-1.3-.3-1.7.1L13.7 12l3.4-3.5z"/></svg>';
+  const btn = (url, icon, top, name) => url
+    ? `<a class="btn store" href="${url}" target="_blank" rel="noopener">${icon}<span><small>${top}</small>${name}</span></a>`
+    : `<span class="btn store" aria-disabled="true">${icon}<span><small>${t('store.soon')}</small>${name}</span></span>`;
+  function renderLinks() {
+    const storesHtml = btn(LINKS.appStore, apple, t('store.iosTop'), t('store.iosName')) + btn(LINKS.googlePlay, play, t('store.playTop'), t('store.playName'));
+    document.querySelectorAll('[data-stores]').forEach(el => { el.innerHTML = storesHtml; });
+    const soon = LINKS.appStore || LINKS.googlePlay ? t('store.ready') : t('store.pending');
+    document.querySelectorAll('[data-soon]').forEach(el => { el.textContent = soon; });
+    const legal = document.getElementById('legal');
+    legal.innerHTML = [['privacy', 'footer.privacy'], ['terms', 'footer.terms'], ['support', 'footer.support']]
+      .filter(([k]) => LINKS[k])
+      .map(([k, label]) => `<a href="${LINKS[k].replace('{lang}', lang)}" target="_blank" rel="noopener">${t(label)}</a>`).join('');
+  }
+
+  // ---------- dot drawing ----------
+  // Same rules as tool/pixel_art.py: the code draws eyes and mouth so faces can change.
+  function bitmap(name, eyes, mouth, mirror) {
+    const s = SP[name];
+    if (!s) return { on: new Set(), w: 0, h: 0 };
+    const h = s.rows.length, w = s.rows[0].length;
+    const on = new Set();
+    s.rows.forEach((r, y) => { for (let x = 0; x < w; x++) if (r[x] === '#') on.add(x + ',' + y); });
+    const f = s.face;
+    if (f) {
+      const rest = f.rest || ['open', 'smile'];
+      eyes = eyes || rest[0]; mouth = mouth || rest[1];
+      const px = [];
+      const eh = f.eh;
+      f.eyes.forEach(([x, y], i) => {
+        if (eyes === 'open') for (let k = 0; k < eh; k++) px.push([x, y + k]);
+        else if (eyes === 'happy') px.push([x - 1, y + 1], [x, y], [x + 1, y + 1]);
+        else if (eyes === 'closed') px.push([x - 1, y + eh - 1], [x, y + eh - 1], [x + 1, y + eh - 1]);
+        else if (eyes === 'sad') px.push(...(i === 1 ? [[x - 1, y], [x, y + 1]] : [[x + 1, y], [x, y + 1]]));
+      });
+      const [mx, my] = f.mouth, mw = f.mw;
+      if (mouth === 'smile') { px.push([mx, my], [mx + mw - 1, my]); for (let k = 1; k < mw - 1; k++) px.push([mx + k, my + 1]); }
+      else if (mouth === 'grin') { for (let k = 0; k < mw; k++) px.push([mx + k, my]); for (let k = 1; k < mw - 1; k++) px.push([mx + k, my + 1]); }
+      else if (mouth === 'flat') { for (let k = 1; k < mw - 1; k++) px.push([mx + k, my + 1]); }
+      else if (mouth === 'frown') { for (let k = 1; k < mw - 1; k++) px.push([mx + k, my]); px.push([mx, my + 1], [mx + mw - 1, my + 1]); }
+      const ink = f.ink !== false;
+      px.forEach(([x, y]) => { const k = x + ',' + y; if (ink) on.add(k); else on.delete(k); });
+    }
+    if (!mirror) return { on, w, h };
+    const m = new Set();
+    on.forEach(k => { const [x, y] = k.split(',').map(Number); m.add((w - 1 - x) + ',' + y); });
+    return { on: m, w, h };
+  }
+
+  function colors(el) {
+    const cs = getComputedStyle(el);
+    return { dot: cs.getPropertyValue('--dot').trim() || '#223022', glass: cs.getPropertyValue('--glass').trim() || '#CAD4AE' };
+  }
+
+  // A dot screen of cols x rows. Each frame is a list of {name, x, y (top), mirror, eyes, mouth} or raw dots.
+  function Lcd(canvas, cols, rows, opts = {}) {
+    const cell = opts.cell || 12;
+    canvas.width = cols * cell; canvas.height = rows * cell;
+    const ctx = canvas.getContext('2d');
+    let last = [];
+    function draw(items) {
+      last = items;
+      const c = opts.colors ? opts.colors() : colors(canvas);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const lit = new Set();
+      for (const it of items) {
+        if (it.dots) { it.dots.forEach(k => lit.add(k)); continue; }
+        const b = bitmap(it.name, it.eyes, it.mouth, it.mirror);
+        b.on.forEach(k => { const [x, y] = k.split(',').map(Number); lit.add((x + it.x) + ',' + (y + it.y)); });
+      }
+      const g = cell - Math.max(1, Math.round(cell / 7));
+      for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+        const on = lit.has(x + ',' + y);
+        ctx.globalAlpha = on ? 1 : 0.07;
+        ctx.fillStyle = c.dot;
+        ctx.fillRect(x * cell, y * cell, g, g);
+      }
+      ctx.globalAlpha = 1;
+    }
+    return { draw, redraw: () => draw(last), cols, rows };
+  }
+  const size = name => { const s = SP[name]; return s ? { w: s.rows[0].length, h: s.rows.length } : { w: 0, h: 0 }; };
+  const beat = (name, t) => (t % 2 && SP[name + '_b']) ? name + '_b' : name;
+  const screens = [];
+
+  // ---------- hero ----------
+  const heroCanvas = document.getElementById('hero');
+  const hero = Lcd(heroCanvas, 32, 16, { cell: 14 });
+  screens.push(hero);
+  const line = document.getElementById('heroLine'), stageEl = document.getElementById('heroStage');
+  const bar = [...document.getElementById('heroBar').children];
+  const demoBtn = document.getElementById('demoBtn'), demoHint = document.getElementById('demoHint');
+  let pet = 'leopa', px = 8, dir = -1, tick = 0, mood = null, moodUntil = 0, demo = null;
+
+  function heroFrame() {
+    tick++;
+    const items = [];
+    if (demo) {
+      demoStep(items);
+    } else {
+      const { w, h } = size(pet);
+      if (!reduced && tick % 3 === 0) {
+        px += dir;
+        if (px <= 1 || px >= 31 - w) dir = -dir;
+        if (Math.random() < 0.08) dir = -dir;
+      }
+      px = Math.max(1, Math.min(31 - w, px));
+      let eyes = null, mouth = null;
+      if (mood && tick < moodUntil) { eyes = 'happy'; mouth = 'grin'; }
+      else if (tick % 17 === 0) { eyes = 'closed'; }
+      items.push({ name: beat(pet, tick), x: px, y: 16 - h, mirror: dir > 0, eyes, mouth });
+      if (mood && tick < moodUntil && SP.heart) items.push({ name: 'heart', x: Math.min(px + w, 32 - size('heart').w), y: 1 + (tick % 2) });
+      if (mood && tick >= moodUntil) { mood = null; stageEl.textContent = t('hero.tap'); }
+    }
+    hero.draw(items);
+  }
+
+  // A fast-forward of one life: egg → baby → child → adult.
+  const DEMO = [
+    { until: 8, name: 'hidamari_egg', label: () => t('demo.egg'), min: [0, 15], day: 1, stage: 0 },
+    { until: 22, name: 'petamaru', label: () => t('demo.baby'), min: [15, 150], day: [1, 3], stage: 1 },
+    { until: 38, name: 'leopa_c', label: () => t('demo.child', { name: spName('leopa') }), min: [150, 600], day: [3, 10], stage: 2 },
+    { until: 52, name: 'leopa', label: () => t('demo.adult', { name: spName('leopa') }), min: [600, 600], day: [10, 10], stage: 3 },
+  ];
+  function demoStep(items) {
+    const k = ++demo.k;
+    let i = DEMO.findIndex(d => k <= d.until);
+    if (i < 0) { endDemo(); return heroFrame(); }
+    const d = DEMO[i], start = i ? DEMO[i - 1].until : 0, p = (k - start) / (d.until - start);
+    const lerp = (a) => Array.isArray(a) ? Math.round(a[0] + (a[1] - a[0]) * p) : a;
+    line.textContent = t('demo.minutes', { min: lerp(d.min) });
+    stageEl.textContent = t('demo.day', { day: lerp(d.day), stage: d.label() });
+    bar.forEach((b, j) => b.classList.toggle('on', j <= d.stage));
+    const { w, h } = size(d.name);
+    const changed = k - start <= 2 && i > 0;
+    if (d.name.endsWith('_egg')) {
+      const wob = reduced ? 0 : [0, -1, 0, 1][k % 4];
+      items.push({ name: d.name, x: 10 + wob, y: 16 - h });
+    } else {
+      if (!reduced && k % 2 === 0) { demo.x += demo.dir; if (demo.x <= 1 || demo.x >= 31 - w) demo.dir = -demo.dir; }
+      demo.x = Math.max(1, Math.min(31 - w, demo.x));
+      items.push({ name: beat(d.name, k), x: demo.x, y: 16 - h, mirror: demo.dir > 0, eyes: changed ? 'happy' : null, mouth: changed ? 'grin' : null });
+    }
+    if (changed && SP.sparkle) {
+      const s = size('sparkle');
+      items.push({ name: 'sparkle', x: 2, y: 1 }, { name: 'sparkle', x: 30 - s.w, y: 2 + (k % 2) });
+    }
+  }
+  function startDemo() {
+    demo = { k: 0, x: 10, dir: 1 };
+    demoBtn.textContent = t('demo.again');
+    demoHint.textContent = t('demo.hint2');
+  }
+  function endDemo() {
+    demo = null; pet = 'leopa'; px = 10; mood = 'happy'; moodUntil = tick + 6;
+    line.textContent = t('hero.adult', { name: spName('leopa') });
+    stageEl.textContent = t('demo.done');
+    bar.forEach(b => b.classList.add('on'));
+  }
+  demoBtn.addEventListener('click', startDemo);
+  heroCanvas.addEventListener('click', () => {
+    if (demo) return;
+    mood = 'happy'; moodUntil = tick + 5; stageEl.textContent = t('hero.happy');
+    heroFrame();
+  });
+  heroFrame();
+  setInterval(heroFrame, 420);
+
+  // ---------- feature icons ----------
+  const ICONS = {
+    phone: ['......########..', '.....#........#.', '.....#.######.#.', '.....#.#....#.#.', '.....#.#....#.#.', '.....#.######.#.', '.....#...##...#.', '......########..', '################'],
+    plan: ['..#....#....', '.##########.', '#..........#', '#.##.##.##.#', '#..........#', '#.##.##....#', '#..........#', '.##########.'],
+    walk: ['....##.........', '...####........', '...####...##...', '....##...####..', '.........####..', '..........##...'],
+  };
+  document.querySelectorAll('[data-icon]').forEach(c => {
+    const rows = ICONS[c.dataset.icon];
+    const lcd = Lcd(c, 24, 16, { cell: 6 });
+    const w = rows[0].length, h = rows.length, dots = [];
+    const ox = Math.floor((24 - w) / 2), oy = Math.floor((16 - h) / 2);
+    rows.forEach((r, y) => [...r].forEach((ch, x) => { if (ch === '#') dots.push((x + ox) + ',' + (y + oy)); }));
+    lcd.draw([{ dots }]);
+    c.style.background = 'var(--glass)'; c.style.borderRadius = '8px';
+    screens.push(lcd);
+  });
+
+  // ---------- collection ----------
+  // One species per family is shown; the rest stay a surprise until you raise them.
+  const SHOWN = ['leopa', 'hermann', 'ballpython', 'futoago', 'nilecroc'];
+  const SPECIES = ['top', 'genki', 'bgood', 'futsuu', 'gutara', 'sanpo'];
+  // A solid shadow of the sprite: close small gaps in the outline, then fill it in.
+  function silhouette(name) {
+    const s = SP[name], h = s.rows.length, w = s.rows[0].length, P = 2;
+    const W = w + 2 * P, H = h + 2 * P;
+    let g = Array.from({ length: H }, (_, y) => Array.from({ length: W }, (_, x) => {
+      const sx = x - P, sy = y - P;
+      return sx >= 0 && sy >= 0 && sx < w && sy < h && s.rows[sy][sx] === '#';
+    }));
+    const morph = (src, grow) => src.map((row, y) => row.map((v, x) => {
+      for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+        const n = (src[y + dy] || [])[x + dx] || false;
+        if (grow && n) return true;
+        if (!grow && !n) return false;
+      }
+      return !grow;
+    }));
+    g = morph(g, true);
+    const out = Array.from({ length: H }, () => Array(W).fill(false)), stack = [[0, 0]];
+    while (stack.length) {
+      const [x, y] = stack.pop();
+      if (x < 0 || y < 0 || x >= W || y >= H || out[y][x] || g[y][x]) continue;
+      out[y][x] = true;
+      stack.push([x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]);
+    }
+    g = morph(out.map(r => r.map(v => !v)), false);
+    const dots = [];
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (g[y + P][x + P]) dots.push([x, y]);
+    return dots;
+  }
+  const grid = document.getElementById('zgrid');
+  const ageBtn = document.getElementById('ageBtn');
+  let fam = 'gecko', child = false, zscreens = [];
+  function renderGrid() {
+    const list = ROSTER.filter(b => b.f === fam && SPECIES.includes(b.r) && b.child === child);
+    grid.innerHTML = list.map(b => {
+      const open = SHOWN.includes(b.id.replace(/_c$/, ''));
+      return open
+        ? `<article class="sp"><div class="mini"><canvas data-sp="${b.id}" role="img" aria-label="${t('zukan.spAria', { name: spName(b.id) })}"></canvas></div><div><h3>${spName(b.id)}</h3><p>${spBlurb(b.id)}</p></div></article>`
+        : `<article class="sp secret"><div class="mini"><canvas data-sp="${b.id}" data-secret="1" role="img" aria-label="${t('zukan.secretAria')}"></canvas></div><div><h3>${t('zukan.secretName')}</h3><p>${t('zukan.secretText')}</p></div></article>`;
+    }).join('');
+    zscreens = [...grid.querySelectorAll('canvas')].map(c => {
+      const name = c.dataset.sp, { w, h } = size(name);
+      const lcd = Lcd(c, 18, 16, { cell: 8 });
+      const x = Math.floor((18 - w) / 2), y = 16 - h;
+      const dots = c.dataset.secret ? silhouette(name).map(([a, b]) => (a + x) + ',' + (b + y)) : null;
+      return { lcd, name, x, y, dots };
+    });
+    drawGrid(0);
+  }
+  function drawGrid(k) {
+    zscreens.forEach((s, i) => s.lcd.draw(s.dots ? [{ dots: s.dots }] : [{ name: beat(s.name, k + i), x: s.x, y: s.y }]));
+  }
+  document.querySelectorAll('.tab[data-fam]').forEach(b => b.addEventListener('click', () => {
+    fam = b.dataset.fam;
+    document.querySelectorAll('.tab[data-fam]').forEach(x => x.setAttribute('aria-selected', String(x === b)));
+    renderGrid();
+  }));
+  ageBtn.addEventListener('click', () => {
+    child = !child;
+    ageBtn.setAttribute('aria-pressed', String(child));
+    ageBtn.textContent = t(child ? 'zukan.showAdult' : 'zukan.showChild');
+    renderGrid();
+  });
+  renderGrid();
+  let gk = 0;
+  if (!reduced) setInterval(() => drawGrid(++gk), 700);
+
+  // ---------- widget ----------
+  (() => {
+    const c = document.getElementById('widget');
+    const lcd = Lcd(c, 24, 16, { cell: 8, colors: () => ({ dot: '#1C3D33', glass: '#D3F0E2' }) });
+    const name = 'hermann', { w, h } = size(name);
+    let k = 0;
+    const f = () => lcd.draw([{ name: beat(name, k++), x: Math.floor((24 - w) / 2), y: 16 - h, mirror: true }]);
+    f(); if (!reduced) setInterval(f, 800);
+    const clock = document.getElementById('wclock');
+    const now = new Date();
+    clock.textContent = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+  })();
+
+  // ---------- final egg ----------
+  (() => {
+    const c = document.getElementById('finalLcd');
+    const lcd = Lcd(c, 32, 16, { cell: 10 });
+    screens.push(lcd);
+    const eggs = ['hidamari_egg', 'koura_egg', 'shima_egg', 'guruguru_egg', 'gotsugotsu_egg'];
+    let k = 0;
+    const f = () => {
+      const name = eggs[Math.floor(k / 12) % eggs.length], { w, h } = size(name);
+      const wob = reduced ? 0 : [0, 0, -1, 0, 1, 0][k % 6];
+      lcd.draw([{ name, x: Math.floor((32 - w) / 2) + wob, y: 16 - h }]);
+      k++;
+    };
+    f(); setInterval(f, 450);
+  })();
+
+
+  // ---------- apply the language ----------
+  function applyLang() {
+    root.lang = lang;
+    langSel.value = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => el.dataset.i18nAttr.split(';').forEach(pair => {
+      const [attr, key] = pair.split(':');
+      el.setAttribute(attr, t(key));
+    }));
+    document.querySelectorAll('img[data-shot]').forEach(img => { img.src = img.getAttribute('src').replace(/img\/[^/]+\//, `img/${lang}/`); });
+    ageBtn.textContent = t(child ? 'zukan.showAdult' : 'zukan.showChild');
+    if (!demo) {
+      line.textContent = t('hero.adult', { name: spName('leopa') });
+      stageEl.textContent = t('hero.tap');
+      demoBtn.textContent = t('demo.btn');
+      demoHint.textContent = t('demo.hint');
+    }
+    renderLinks();
+    renderGrid();
+  }
+  applyLang();
+})();
+</script>
+
+</body>
+</html>
