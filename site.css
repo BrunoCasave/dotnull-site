@@ -860,17 +860,8 @@ body.film-open {
 }
 
 /* Coating */
-.coat-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 80px);
-  align-items: start;
-}
-.coat-panel {
-  position: sticky;
-  top: 24px;
-  aspect-ratio: 1;
-  border-radius: 6px;
+.coat-main {
+  max-width: 760px;
 }
 .coat-block + .coat-block {
   margin-top: 48px;
@@ -1097,16 +1088,10 @@ body.film-open {
     order: -1;
     transform: none;
   }
-  .coat-layout,
   .company-layout {
     grid-template-columns: minmax(0, 1fr);
   }
-  .coat-panel {
-    position: static;
-    order: -1;
-    aspect-ratio: 16 / 7;
   }
-}
 @media (max-width: 760px) {
   .doors {
     flex-direction: column;
