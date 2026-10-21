@@ -1,68 +1,28 @@
 /* Progressive enhancement only. Content, download links and legal pages remain static. */
 (() => {
-  const header = document.querySelector('[data-header]');
-  if (header) {
-    const syncHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
-    window.addEventListener('scroll', syncHeader, { passive: true });
-    syncHeader();
-  }
-
-  const revealItems = document.querySelectorAll('[data-reveal]');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-in');
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    revealItems.forEach(item => observer.observe(item));
-  } else {
-    revealItems.forEach(item => item.classList.add('is-in'));
-  }
-
-  const company = document.getElementById('company-details');
-  const companyLinks = [...document.querySelectorAll('[data-company-link]')];
-  const openCompany = () => {
-    if (company) company.open = true;
-  };
-  if (company) {
-    const syncCompany = () => companyLinks.forEach(link => link.setAttribute('aria-expanded', String(company.open)));
-    company.addEventListener('toggle', syncCompany);
-    companyLinks.forEach(link => link.addEventListener('click', event => {
-      if (!event.defaultPrevented && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) openCompany();
-    }));
-    window.addEventListener('hashchange', () => {
-      if (window.location.hash === '#company') openCompany();
+  // Clear-coat highlight on the CSS carbon panels follows the pointer.
+  document.querySelectorAll('[data-sheen]').forEach(panel => {
+    panel.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      const box = panel.getBoundingClientRect();
+      panel.style.setProperty('--mx', `${((event.clientX - box.left) / box.width) * 100}%`);
+      panel.style.setProperty('--my', `${((event.clientY - box.top) / box.height) * 100}%`);
     });
-    if (window.location.hash === '#company') openCompany();
-    syncCompany();
-  }
+    panel.addEventListener('pointerleave', () => {
+      panel.style.removeProperty('--mx');
+      panel.style.removeProperty('--my');
+    });
+  });
 
-  document.querySelectorAll('[role="tablist"]').forEach(list => {
-    const tabs = [...list.querySelectorAll('[role="tab"]')];
-    const select = (selected, focus = false) => {
-      tabs.forEach(tab => {
-        const active = tab === selected;
-        tab.setAttribute('aria-selected', String(active));
-        tab.tabIndex = active ? 0 : -1;
-        tab.toggleAttribute('data-active', active);
-        const panel = document.getElementById(tab.getAttribute('aria-controls'));
-        if (panel) panel.hidden = !active;
-      });
-      if (focus) selected.focus();
-    };
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => select(tab));
-      tab.addEventListener('keydown', event => {
-        let next;
-        if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-        if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-        if (event.key === 'Home') next = 0;
-        if (event.key === 'End') next = tabs.length - 1;
-        if (next === undefined) return;
-        event.preventDefault();
-        select(tabs[next], true);
+  // Products page: show all, only games, or only apps.
+  const filterButtons = [...document.querySelectorAll('[data-filter]')];
+  const blocks = [...document.querySelectorAll('[data-kind]')];
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const kind = button.dataset.filter;
+      filterButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      blocks.forEach(block => {
+        block.hidden = kind !== 'all' && block.dataset.kind !== kind;
       });
     });
   });
