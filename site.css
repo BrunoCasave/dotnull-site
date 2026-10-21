@@ -733,6 +733,11 @@ body {
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
+/* Keep the complete approved Copy Trap artwork visible in its product card. */
+.games .feature-copytrap .feature-shot img {
+  object-fit: contain;
+}
+
 .games .feature-brand {
   margin-top: 16px;
 }
