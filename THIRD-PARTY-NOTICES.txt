@@ -51,3 +51,7 @@ SOFTWARE.
 Inter Tight (assets/fonts/inter-tight-latin-*.woff2)
 Copyright 2022 The Inter Project Authors (https://github.com/rsms/inter-tight)
 Licensed under the SIL Open Font License, Version 1.1. Full text: assets/fonts/OFL-InterTight.txt
+
+Noto Sans JP (assets/fonts/noto-sans-jp-subset-*.woff2, subset to the characters used on the site)
+(c) 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Licensed under the SIL Open Font License, Version 1.1. Full text: assets/fonts/OFL-NotoSansJP.txt
