@@ -6,3 +6,5 @@
 .store-links{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}.store-badge{display:inline-flex;border-radius:7px;line-height:0}.store-badge img{display:block;width:168px;height:auto}.store-badge:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 
 .hero-copy>.button{background:transparent;color:var(--blue);border:1px solid var(--line);margin-top:18px}.hero-copy>.button:hover{background:var(--pale)}.store-links{margin-top:0}.availability{margin-top:14px}
+
+.store-badge--apple img{width:auto;height:50px}
