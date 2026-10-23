@@ -830,6 +830,9 @@ body.film-open {
     0 0 0 1px #0000000f,
     0 8px 18px -10px #0006;
 }
+.icon-shelf a:focus-visible {
+  z-index: 2;
+}
 .icon-shelf a::after {
   content: attr(data-name);
   position: absolute;
@@ -1077,6 +1080,7 @@ body.film-open {
     transform: translateX(4px);
   }
   .icon-shelf a:hover {
+    z-index: 2;
     transform: translateY(-4px);
   }
   .icon-shelf a:hover::after,
