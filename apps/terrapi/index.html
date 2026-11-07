@@ -453,7 +453,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 <script>
 // ストアのURLが決まったらここに入れてください。空のあいだは「近日公開」と表示します。
 const LINKS = {
-  appStore: '',
+  appStore: 'https://apps.apple.com/app/id6823927747',
   googlePlay: 'https://play.google.com/store/apps/details?id=com.dotnull.terrapi',
   privacy: 'https://dotnull.co.jp/apps/terrapi/privacy/{lang}/',
   terms: 'https://dotnull.co.jp/apps/terrapi/terms/{lang}/',
@@ -495,10 +495,13 @@ const LINKS = {
     ? `<a class="btn store" href="${url}" target="_blank" rel="noopener">${icon}<span><small>${top}</small>${name}</span></a>`
     : `<span class="btn store" aria-disabled="true">${icon}<span><small>${t('store.soon')}</small>${name}</span></span>`;
   function renderLinks() {
+    const appStoreBadge = LINKS.appStore
+      ? `<a class="store-badge" href="${LINKS.appStore}" target="_blank" rel="noopener noreferrer"><img src="${root.dataset.root || './'}assets/store-badges/app-store-${lang}.svg" alt="${t('store.iosTop')} ${t('store.iosName')}" height="40"></a>`
+      : btn('', apple, t('store.iosTop'), t('store.iosName'));
     const googlePlayBadge = LINKS.googlePlay
       ? `<a class="store-badge" href="${LINKS.googlePlay}" target="_blank" rel="noopener noreferrer"><img src="${root.dataset.root || './'}assets/store-badges/google-play-${lang}.png" alt="${t('store.playTop')} ${t('store.playName')}" width="270" height="80"></a>`
       : btn('', play, t('store.playTop'), t('store.playName'));
-    const storesHtml = btn(LINKS.appStore, apple, t('store.iosTop'), t('store.iosName')) + googlePlayBadge;
+    const storesHtml = appStoreBadge + googlePlayBadge;
     document.querySelectorAll('[data-stores]').forEach(el => { el.innerHTML = storesHtml; });
     const soon = LINKS.googlePlay && !LINKS.appStore
       ? t('store.androidReady')
