@@ -104,7 +104,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .store span { display: flex; flex-direction: column; }
 .store small { font-size: .7rem; font-weight: 500; opacity: .8; }
 .store[aria-disabled="true"] { cursor: default; }
-.stores { display: flex; flex-wrap: wrap; gap: 10px; }
+.stores { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.store-badge { display: inline-flex; border-radius: 8px; }
+.store-badge img { display: block; width: auto; height: 54px; }
+.store-badge:focus-visible { outline: 3px solid var(--ember); outline-offset: 4px; }
 .soon { font-size: .82rem; color: var(--sub); }
 
 /* ---------- the LCD device ---------- */
@@ -451,7 +454,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 // ストアのURLが決まったらここに入れてください。空のあいだは「近日公開」と表示します。
 const LINKS = {
   appStore: '',
-  googlePlay: '',
+  googlePlay: 'https://play.google.com/store/apps/details?id=com.dotnull.terrapi',
   privacy: 'https://dotnull.co.jp/apps/terrapi/privacy/en/',
   terms: 'https://dotnull.co.jp/apps/terrapi/terms/en/',
   support: 'https://dotnull.co.jp/apps/terrapi/support/{lang}/',
@@ -492,9 +495,14 @@ const LINKS = {
     ? `<a class="btn store" href="${url}" target="_blank" rel="noopener">${icon}<span><small>${top}</small>${name}</span></a>`
     : `<span class="btn store" aria-disabled="true">${icon}<span><small>${t('store.soon')}</small>${name}</span></span>`;
   function renderLinks() {
-    const storesHtml = btn(LINKS.appStore, apple, t('store.iosTop'), t('store.iosName')) + btn(LINKS.googlePlay, play, t('store.playTop'), t('store.playName'));
+    const googlePlayBadge = LINKS.googlePlay
+      ? `<a class="store-badge" href="${LINKS.googlePlay}" target="_blank" rel="noopener noreferrer"><img src="${root.dataset.root || './'}assets/store-badges/google-play-${lang}.png" alt="${t('store.playTop')} ${t('store.playName')}" width="270" height="80"></a>`
+      : btn('', play, t('store.playTop'), t('store.playName'));
+    const storesHtml = btn(LINKS.appStore, apple, t('store.iosTop'), t('store.iosName')) + googlePlayBadge;
     document.querySelectorAll('[data-stores]').forEach(el => { el.innerHTML = storesHtml; });
-    const soon = LINKS.appStore || LINKS.googlePlay ? t('store.ready') : t('store.pending');
+    const soon = LINKS.googlePlay && !LINKS.appStore
+      ? t('store.androidReady')
+      : LINKS.appStore || LINKS.googlePlay ? t('store.ready') : t('store.pending');
     document.querySelectorAll('[data-soon]').forEach(el => { el.textContent = soon; });
     const legal = document.getElementById('legal');
     legal.innerHTML = [['privacy', 'footer.privacy'], ['terms', 'footer.terms'], ['support', 'footer.support']]
