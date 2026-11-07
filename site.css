@@ -338,8 +338,6 @@ body {
 .feature-terrapi:hover .feature-shot { transform: none; }
 .btn-terrapi { background: #d9682b; color: #fff; }
 .btn-terrapi:hover { background: #ec7d40; }
-.feature-terrapi .feature-store { font-size: 0.875rem; font-weight: 700; color: #d3f0e2; text-decoration: underline; text-underline-offset: 3px; }
-.feature-terrapi .feature-store:hover { color: #fff; }
 
 
 /* ---------- Apps ---------- */
