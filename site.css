@@ -413,6 +413,38 @@ body {
 .games .feature {
   scroll-snap-align: start;
 }
+/* With the script on, the row loops: the scrollbar would mislead, so two buttons replace it. */
+.games.is-loop {
+  padding-bottom: 0;
+  scrollbar-width: none;
+}
+.games.is-loop::-webkit-scrollbar {
+  display: none;
+}
+.games-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+.games-nav button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+}
+.games-nav button:hover {
+  border-color: var(--ink);
+}
+.games-nav-prev .i {
+  transform: scaleX(-1);
+}
 .games .feature {
   grid-template-columns: minmax(0, 1fr);
   align-content: start;
