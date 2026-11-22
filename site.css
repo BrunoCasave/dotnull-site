@@ -323,6 +323,21 @@ body {
 .btn-tojikome { background: #f2b705; color: #2b2622; }
 .btn-tojikome:hover { background: #ffd34d; }
 
+/* スピにゃん: announcement only, in the game's ice-sea and sunset colors. */
+.feature-spinyan {
+  background: radial-gradient(70% 90% at 100% 0%, #8cc9e359, transparent 75%), #1c3e57;
+  color: #ffffff;
+}
+.feature-spinyan .feature-badge span { background: #f5ae8f; color: #1c3e57; }
+.feature-spinyan .feature-brand h3 { font-family: inherit; letter-spacing: 0; }
+.feature-spinyan .feature-lead { color: #eaf5fbd9; }
+.feature-spinyan .feature-facts li { border-color: #eaf5fb40; color: #eaf5fbcc; }
+.feature-spinyan .feature-soon { color: #eaf5fba6; }
+.feature-spinyan .feature-shot,
+.feature-spinyan:hover .feature-shot { transform: none; }
+.btn-spinyan { background: #e2583a; color: #fff; }
+.btn-spinyan:hover { background: #ee7d63; }
+
 /* テラピ: the app's logo teal and mint LCD glass, with its orange button. */
 .feature-terrapi {
   background: radial-gradient(70% 90% at 100% 0%, #d3f0e238, transparent 75%), #1f5f54;
