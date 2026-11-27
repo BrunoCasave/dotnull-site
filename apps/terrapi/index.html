@@ -210,11 +210,15 @@ section.band { background: var(--paper-2); }
 .plan.pick { border-color: var(--ember); }
 .plan .badge { position: absolute; top: -12px; left: 20px; background: var(--ember); color: var(--ember-ink); font-size: .75rem; font-weight: 800; padding: 2px 10px; border-radius: 99px; }
 .plan .name { font-weight: 700; color: var(--sub); }
-.plan .price { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: 2.2rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.plan .price { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: 1.6rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .plan .price small { font-size: 1rem; color: var(--sub); }
 .plan p { font-size: .88rem; color: var(--sub); }
 @media (max-width: 760px) { .plans { grid-template-columns: 1fr; } }
 .member { margin-top: 18px; font-size: .9rem; color: var(--sub); }
+.member.pre { margin: 0 0 18px; }
+.mem-title { margin-top: 36px; font-size: 1.1rem; }
+.mem-sub { color: var(--sub); font-size: .95rem; margin: 4px 0 8px; }
+.free h3 { font-size: 1.3rem; }
 
 /* faq */
 .faq { display: grid; gap: 10px; max-width: 760px; }
@@ -427,19 +431,21 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
   <div class="wrap">
     <div class="head">
       <div class="eyebrow" data-i18n="price.eyebrow">料金</div>
-      <h2 data-i18n="price.title">まずは7日間、無料で。</h2>
-      <p data-i18n="price.lead">たまごをかえして、こどもに育てるまでは無料。おとなに育てるには、メンバーシップに入ります。</p>
+      <h2 data-i18n="price.title">こどもまでは、ずっと無料。</h2>
+      <p data-i18n="price.lead">たまごをかえして、こどもに育てるまでは、お金はかかりません。おとなに育てたくなったら、メンバーシップへ。</p>
     </div>
     <div class="free">
       <h3 data-i18n="price.freeTitle">無料でできること</h3>
       <p data-i18n="price.freeText">たまごを育てる、あかちゃんとこどものお世話、集中タイマー、集中の予定、おさんぽ、ずかん、きろく、ウィジェット。</p>
     </div>
+    <h3 class="mem-title" data-i18n="price.memberTitle">おとなに育てるなら、メンバーシップ</h3>
+    <p class="mem-sub" data-i18n="price.memberSub">どのプランも7日間の無料体験つき。</p>
+    <p class="member pre" data-i18n="price.member">メンバーシップでできること：こどもからおとなへの成長、なかまを迎えていっしょに育てる、液晶の色の着せかえ。解約しても、育てた子は消えません。おとなの子はおやすみ中になり、なでることもできます。集中タイマーはそのまま使えます。価格は日本のストアでの税込価格です。</p>
     <div class="plans">
       <div class="plan pick"><span class="badge" data-i18n="price.badge">いちばんお得</span><div class="name" data-i18n="price.yearly">年額プラン</div><div class="price" data-i18n="price.yearlyAmount">¥3,600<small> / 年</small></div><p data-i18n="price.yearlyNote">7日間の無料体験つき。月あたり300円です。</p></div>
       <div class="plan"><div class="name" data-i18n="price.monthly">月額プラン</div><div class="price" data-i18n="price.monthlyAmount">¥480<small> / 月</small></div><p data-i18n="price.monthlyNote">7日間の無料体験つき。いつでも解約できます。</p></div>
       <div class="plan"><div class="name" data-i18n="price.lifetime">買い切り</div><div class="price" data-i18n="price.lifetimeAmount">¥7,800</div><p data-i18n="price.lifetimeNote">一度の購入で、ずっと使えます。</p></div>
     </div>
-    <p class="member" data-i18n="price.member">メンバーシップでできること：こどもからおとなへの成長、なかまを迎えていっしょに育てる、液晶の色の着せかえ。解約しても、育てた子は消えません。おとなの子はおやすみ中になり、なでることもできます。集中タイマーはそのまま使えます。価格は日本のストアでの税込価格です。</p>
   </div>
 </section>
 

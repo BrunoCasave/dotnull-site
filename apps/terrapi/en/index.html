@@ -210,11 +210,15 @@ section.band { background: var(--paper-2); }
 .plan.pick { border-color: var(--ember); }
 .plan .badge { position: absolute; top: -12px; left: 20px; background: var(--ember); color: var(--ember-ink); font-size: .75rem; font-weight: 800; padding: 2px 10px; border-radius: 99px; }
 .plan .name { font-weight: 700; color: var(--sub); }
-.plan .price { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: 2.2rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.plan .price { font-family: var(--f-dot); font-weight: var(--dot-weight); font-size: 1.6rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .plan .price small { font-size: 1rem; color: var(--sub); }
 .plan p { font-size: .88rem; color: var(--sub); }
 @media (max-width: 760px) { .plans { grid-template-columns: 1fr; } }
 .member { margin-top: 18px; font-size: .9rem; color: var(--sub); }
+.member.pre { margin: 0 0 18px; }
+.mem-title { margin-top: 36px; font-size: 1.1rem; }
+.mem-sub { color: var(--sub); font-size: .95rem; margin: 4px 0 8px; }
+.free h3 { font-size: 1.3rem; }
 
 /* faq */
 .faq { display: grid; gap: 10px; max-width: 760px; }
@@ -429,19 +433,21 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
   <div class="wrap">
     <div class="head">
       <div class="eyebrow" data-i18n="price.eyebrow">Pricing</div>
-      <h2 data-i18n="price.title">Start with 7 days free.</h2>
-      <p data-i18n="price.lead">Hatching an egg and raising it into a child is free. To raise it into an adult, join the Membership.</p>
+      <h2 data-i18n="price.title">Free from egg to child.</h2>
+      <p data-i18n="price.lead">Hatching an egg and raising it into a child costs nothing. When you want to raise it into an adult, join the Membership.</p>
     </div>
     <div class="free">
       <h3 data-i18n="price.freeTitle">What's free</h3>
       <p data-i18n="price.freeText">Raising eggs, caring for babies and children, the focus timer, focus plans, walks, the collection, records and widgets.</p>
     </div>
+    <h3 class="mem-title" data-i18n="price.memberTitle">To raise an adult: the Membership</h3>
+    <p class="mem-sub" data-i18n="price.memberSub">Every plan includes a 7-day free trial.</p>
+    <p class="member pre" data-i18n="price.member">With the Membership: grow children into adults, welcome new friends and raise them together, and change the screen color. If you cancel, the pets you raised don't disappear. Adults go to sleep, and you can still pat them. The focus timer keeps working as before. Prices in your currency are shown in the App Store and Google Play.</p>
     <div class="plans">
       <div class="plan pick"><span class="badge" data-i18n="price.badge">Best value</span><div class="name" data-i18n="price.yearly">Yearly plan</div><div class="price" data-i18n="price.yearlyAmount">Per year</div><p data-i18n="price.yearlyNote">Includes a 7-day free trial. Our best value.</p></div>
       <div class="plan"><div class="name" data-i18n="price.monthly">Monthly plan</div><div class="price" data-i18n="price.monthlyAmount">Per month</div><p data-i18n="price.monthlyNote">Includes a 7-day free trial. Cancel anytime.</p></div>
       <div class="plan"><div class="name" data-i18n="price.lifetime">One-time purchase</div><div class="price" data-i18n="price.lifetimeAmount">Pay once</div><p data-i18n="price.lifetimeNote">Pay once, keep it forever.</p></div>
     </div>
-    <p class="member" data-i18n="price.member">With the Membership: grow children into adults, welcome new friends and raise them together, and change the screen color. If you cancel, the pets you raised don't disappear. Adults go to sleep, and you can still pat them. The focus timer keeps working as before. Prices in your currency are shown in the App Store and Google Play.</p>
   </div>
 </section>
 
