@@ -838,5 +838,15 @@ const LINKS = {
 })();
 </script>
 
+<script>
+// On phones, the header download button opens this device's store in one tap.
+(() => {
+  const ua = navigator.userAgent;
+  const ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  const url = ios ? LINKS.appStore : /Android/.test(ua) ? LINKS.googlePlay : '';
+  const dl = document.querySelector('a.dl[href="#get"]');
+  if (url && dl) dl.href = url;
+})();
+</script>
 </body>
 </html>
